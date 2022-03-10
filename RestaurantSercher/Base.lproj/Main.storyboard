@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="RestaurantSercher" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oj5-gX-crf">
+                                <rect key="frame" x="40" y="187" width="128" height="20.666666666666657"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mgU-Xs-mfg">
+                                <rect key="frame" x="40" y="258" width="310" height="313"/>
+                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Powered by ホットペッパー Webサービス" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TPi-Nl-N6o">
+                                <rect key="frame" x="33.666666666666657" y="759" width="323" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U1E-30-cSN">
+                                <rect key="frame" x="115.66666666666669" y="579" width="159" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Get Current Location"/>
+                                <connections>
+                                    <action selector="getCurrentLocationTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nb8-CS-7Qp"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="飲食店検索" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbv-4y-wXU">
+                                <rect key="frame" x="67" y="94" width="256" height="43"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="256" id="1Uc-4F-yOP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="U1E-30-cSN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6xI-nL-059"/>
+                            <constraint firstItem="zbv-4y-wXU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7t2-l9-nnZ"/>
+                            <constraint firstItem="mgU-Xs-mfg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="822-7E-DOi"/>
+                            <constraint firstItem="Oj5-gX-crf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="8mC-5k-6ui"/>
+                            <constraint firstItem="TPi-Nl-N6o" firstAttribute="top" secondItem="U1E-30-cSN" secondAttribute="bottom" constant="149" id="DmP-hY-iyS"/>
+                            <constraint firstItem="Oj5-gX-crf" firstAttribute="top" secondItem="zbv-4y-wXU" secondAttribute="bottom" constant="50" id="TGU-K2-bDT"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="TPi-Nl-N6o" secondAttribute="bottom" constant="30" id="ZEu-5b-6UT"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mgU-Xs-mfg" secondAttribute="trailing" constant="40" id="gAa-Q5-lSD"/>
+                            <constraint firstItem="mgU-Xs-mfg" firstAttribute="top" secondItem="Oj5-gX-crf" secondAttribute="bottom" constant="50" id="nrK-2O-Ep5"/>
+                            <constraint firstItem="zbv-4y-wXU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="tzp-N5-zkX"/>
+                            <constraint firstItem="TPi-Nl-N6o" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="unz-L9-QzI"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="locationInfoLabel" destination="mgU-Xs-mfg" id="nHj-XQ-Pn2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="135.38461538461539" y="124.40758293838861"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
