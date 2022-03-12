@@ -10,6 +10,7 @@ import CoreLocation
 import WebKit
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
+    let deligate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
 
     @IBOutlet weak var locationInfoLabel: UILabel!
     
@@ -40,20 +41,18 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                             return
                         }
                         //正常時の処理(位置情報記述)
-                        if let placemark = placemarks?[0] {
                         
-                            var locInfo = ""
-                            locInfo = locInfo + "Latitude: \(loc.coordinate.latitude)\n"
-                            locInfo = locInfo + "Longitude: \(loc.coordinate.longitude)\n\n"
+                        var locInfo = ""
+                        locInfo = locInfo + "Latitude: \(loc.coordinate.latitude)\n"
+                        locInfo = locInfo + "Longitude: \(loc.coordinate.longitude)"
+                        //ユーザの位置情報保存
+                        self.deligate.userLat = Float(loc.coordinate.latitude)
+                        self.deligate.userLng = Float(loc.coordinate.longitude)
+                        print(self.deligate.userLat)
+
                             
-                            locInfo = locInfo + "Country: \(placemark.country ?? "")\n"
-                            locInfo = locInfo + "State/Province: \(placemark.administrativeArea ?? "")\n"
-                            locInfo = locInfo + "City: \(placemark.locality ?? "")\n"
-                            locInfo = locInfo + "PostalCode: \(placemark.postalCode ?? "")\n"
-                            locInfo = locInfo + "Name: \(placemark.name ?? "")"
-                            
-                            self.locationInfoLabel.text = locInfo
-                        }
+                        self.locationInfoLabel.text = locInfo
+
                     })
     }
 

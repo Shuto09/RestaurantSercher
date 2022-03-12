@@ -6,7 +6,12 @@
 //
 
 import Foundation
+import CoreLocation
 
-class DataRequest {
-    let ApiData = UIa
+//検索用クラス
+class DataRequest: ObservableObject {
+    
+    func searchRestaurant(){
+        
+    }
 }
