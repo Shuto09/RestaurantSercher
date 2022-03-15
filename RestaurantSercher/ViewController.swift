@@ -9,8 +9,11 @@ import UIKit
 import CoreLocation
 import WebKit
 
-class ViewController: UIViewController, CLLocationManagerDelegate {
-    let deligate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
+class ViewController: UIViewController, CLLocationManagerDelegate{
+
+    private var lat: Double = 0
+    private var lng: Double = 0
+    
 
     @IBOutlet weak var locationInfoLabel: UILabel!
     
@@ -24,7 +27,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         //アプリ使用中の許可申請
         locationManager.requestWhenInUseAuthorization()
+        
+        
     }
+    
+    
     
     @IBAction func getCurrentLocationTapped(_ sender: Any) {
         //ボタンタップ時「のみ」の位置情報取得
@@ -34,7 +41,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
             guard let loc = locations.last else { return }
                     //国や市の情報取得
-                    CLGeocoder().reverseGeocodeLocation(loc, completionHandler: {(placemarks, error) in
+        CLGeocoder().reverseGeocodeLocation(loc, completionHandler: { [self](placemarks, error) in
                         //エラー時の処理
                         if let error = error {
                             print("reverseGeocodeLocation Failed: \(error.localizedDescription)")
@@ -45,12 +52,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                         var locInfo = ""
                         locInfo = locInfo + "Latitude: \(loc.coordinate.latitude)\n"
                         locInfo = locInfo + "Longitude: \(loc.coordinate.longitude)"
-                        //ユーザの位置情報保存
-                        self.deligate.userLat = Float(loc.coordinate.latitude)
-                        self.deligate.userLng = Float(loc.coordinate.longitude)
-                        print(self.deligate.userLat)
-
-                            
+                        self.lat = loc.coordinate.latitude
+                        self.lng = loc.coordinate.longitude
                         self.locationInfoLabel.text = locInfo
 
                     })
@@ -58,8 +61,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
             //エラー内容記述
-            print("error: \(error.localizedDescription)")
+            print("error(0): \(error.localizedDescription)")
     }
-
+    
 }
-

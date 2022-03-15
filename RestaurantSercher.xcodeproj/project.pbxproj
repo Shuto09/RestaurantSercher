@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A64AAB427E01A6C0001F42B /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A64AAB327E01A6C0001F42B /* ViewController2.swift */; };
 		7A85140427D08FF00049F020 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A85140327D08FF00049F020 /* AppDelegate.swift */; };
 		7A85140627D08FF00049F020 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A85140527D08FF00049F020 /* SceneDelegate.swift */; };
 		7A85140827D08FF00049F020 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A85140727D08FF00049F020 /* ViewController.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7A64AAB327E01A6C0001F42B /* ViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
 		7A85140027D08FF00049F020 /* RestaurantSercher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestaurantSercher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A85140327D08FF00049F020 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A85140527D08FF00049F020 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				7A85140527D08FF00049F020 /* SceneDelegate.swift */,
 				7A85140727D08FF00049F020 /* ViewController.swift */,
 				7A85140927D08FF00049F020 /* Main.storyboard */,
+				7A64AAB327E01A6C0001F42B /* ViewController2.swift */,
 				7A8514AD27D434430049F020 /* DataRequest.swift */,
 				7A85140C27D08FF30049F020 /* Assets.xcassets */,
 				7A85140E27D08FF30049F020 /* LaunchScreen.storyboard */,
@@ -261,6 +264,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A64AAB427E01A6C0001F42B /* ViewController2.swift in Sources */,
 				7A85140827D08FF00049F020 /* ViewController.swift in Sources */,
 				7A85140427D08FF00049F020 /* AppDelegate.swift in Sources */,
 				7A85140627D08FF00049F020 /* SceneDelegate.swift in Sources */,

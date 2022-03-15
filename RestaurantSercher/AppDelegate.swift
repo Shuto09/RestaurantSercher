@@ -10,24 +10,25 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     //ユーザの位置情報
-    var userLat:Float = 0.0
-    var userLng:Float = 0.0
+    var userLat:Double = 0.0
+    var userLng:Double = 0.0
     
-    //APIから取得する値
-    //検索結果画面
-    var searchName:[String] = []
-    var searchAccess:[String] = []
-    var searchLogo:[String] = []
-    var searchLat:[Double] = []
-    var searchLng:[Double] = []
-    
-    //店舗詳細画面
-    var retrieveName:[String] = []
-    var retrieveAddress:[String] = []
-    var retrieveTime:[String] = []
-    var retrievePhoto:[String] = []
-    var retrieveClose:[String] = []
-    var retrieveUrl:[String] = []
+    //aaaaa
+//    //APIから取得する値
+//    //検索結果画面
+//    var searchName:[String] = []
+//    var searchAccess:[String] = []
+//    var searchLogo:[String] = []
+//    var searchLat:[Double] = []
+//    var searchLng:[Double] = []
+//
+//    //店舗詳細画面
+//    var retrieveName:[String] = []
+//    var retrieveAddress:[String] = []
+//    var retrieveTime:[String] = []
+//    var retrievePhoto:[String] = []
+//    var retrieveClose:[String] = []
+//    var retrieveUrl:[String] = []
     
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
