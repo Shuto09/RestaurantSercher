@@ -57,6 +57,9 @@ struct Shop: Codable {
 
 class ViewController2: UIViewController {
     
+    var lat:Double?
+    var lng:Double?
+    
     private let cellId = "cellId"
     private var apis = [Api]()
     static var count: Int = 0
@@ -80,9 +83,17 @@ class ViewController2: UIViewController {
         getApi()
     }
     //Api リクエスト
+    //URL作成
     private func getApi() {
-        
-        guard let url = URL(string: "https://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=c31fe861ba13d33c&lat=34.67&lng=135.52&range=5&order=4&format=json") else { return }
+        let apiKey: String = "c31fe861ba13d33c"
+        let beseUrl:String = "https://webservice.recruit.co.jp/hotpepper/gourmet/v1/?"
+        let api:String = "key=" + apiKey
+        let urlLat:String = "&lat=" + String(lat ?? 34.67)
+        let urlLng:String = "&lng=" + String(lng ?? 135.52)
+        let range:String = "&range=3"
+        let format:String = "&format=json"
+        let mixUrl:String = beseUrl + api + urlLat + urlLng + range + format
+        guard let url = URL(string: mixUrl) else { return }
         
         var request = URLRequest(url: url)
         request.httpMethod = "GET"

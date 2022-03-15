@@ -36,6 +36,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     @IBAction func getCurrentLocationTapped(_ sender: Any) {
         //ボタンタップ時「のみ」の位置情報取得
         locationManager.requestLocation()
+        performSegue(withIdentifier: "toViewController2",sender: nil)
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -63,5 +64,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
             //エラー内容記述
             print("error(0): \(error.localizedDescription)")
     }
+    //ViewController2に送る位置情報を準備
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if (segue.identifier == "toViewController2") {
+                let vc2: ViewController2 = (segue.destination as? ViewController2)!
+                // 位置情報をセット
+                vc2.lat = self.lat
+                vc2.lng = self.lng
+            }
+        }
     
 }
