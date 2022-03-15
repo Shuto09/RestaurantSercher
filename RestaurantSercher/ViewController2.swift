@@ -59,6 +59,7 @@ class ViewController2: UIViewController {
     
     private let cellId = "cellId"
     private var apis = [Api]()
+    static var count: Int = 0
     
     let tableView: UITableView = {
         let tv = UITableView()
@@ -101,8 +102,11 @@ class ViewController2: UIViewController {
                     print("json:", api)
 //                    件数表示（String -> Int）
 //                    print(api.results.resultsReturned.value)
-                    print("ここからapiです：",api)
-                    print(self.apis.count)
+//                    print("ここからapiです：",api)
+//                    print(self.apis.count)
+                    print(api.results.resultsReturned)
+                    ViewController2.count = api.results.resultsReturned.value
+                    print(ViewController2.count)
                 } catch(let err) {
                     print("情報の取得に失敗しました。(2)：", err)
                     return
@@ -120,7 +124,6 @@ extension ViewController2: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return api.results.resultsReturned.value
         return apis.count
     }
     
@@ -135,8 +138,8 @@ extension ViewController2: UITableViewDelegate, UITableViewDataSource {
 class ApiTableViewCell: UITableViewCell {
     var api: Api? {
         didSet {
-            let count = api?.results.resultsReturned.value
-                for i in 0 ..< count!{
+//            let count = api?.results.resultsReturned.value
+            for i in 0 ..< ViewController2.count{
                     bodyTextLabel.text = api?.results.shop[i].name
                     let url = URL(string: api?.results.shop[i].logoImage ?? "")
                     do {
@@ -149,7 +152,7 @@ class ApiTableViewCell: UITableViewCell {
                 }
         }
     }
-    
+    //ロゴ
     let logoImageView: UIImageView = {
        let iv = UIImageView()
         iv.contentMode = .scaleAspectFill
@@ -157,7 +160,7 @@ class ApiTableViewCell: UITableViewCell {
         iv.clipsToBounds = true
         return iv
     }()
-    
+    //お店の名前
     let bodyTextLabel: UILabel = {
         let label = UILabel()
         label.text = "something in here"
@@ -165,7 +168,7 @@ class ApiTableViewCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
+    //レイアウト
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
