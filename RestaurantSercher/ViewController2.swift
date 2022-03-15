@@ -54,7 +54,7 @@ struct Shop: Codable {
     }
 }
 
-
+//飲食店表示するための画面
 class ViewController2: UIViewController {
     
     var lat:Double?
@@ -94,7 +94,6 @@ class ViewController2: UIViewController {
         let format:String = "&format=json"
         let mixUrl:String = beseUrl + api + urlLat + urlLng + range + format
         guard let url = URL(string: mixUrl) else { return }
-        
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         
@@ -111,11 +110,7 @@ class ViewController2: UIViewController {
                         self.tableView.reloadData()
                     }
                     print("json:", api)
-//                    件数表示（String -> Int）
-//                    print(api.results.resultsReturned.value)
-//                    print("ここからapiです：",api)
-//                    print(self.apis.count)
-                    print(api.results.resultsReturned)
+                    //検索結果件数
                     ViewController2.count = api.results.resultsReturned.value
                     print(ViewController2.count)
                 } catch(let err) {
@@ -133,11 +128,11 @@ extension ViewController2: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
     }
-    
+    //セルの数
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return apis.count
     }
-    
+    //セルの生成
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! ApiTableViewCell
         cell.api = apis[indexPath.row]
@@ -151,16 +146,16 @@ class ApiTableViewCell: UITableViewCell {
         didSet {
 //            let count = api?.results.resultsReturned.value
             for i in 0 ..< ViewController2.count{
-                    bodyTextLabel.text = api?.results.shop[i].name
-                    let url = URL(string: api?.results.shop[i].logoImage ?? "")
-                    do {
-                        let data = try Data(contentsOf: url!)
-                        let image = UIImage(data: data)
-                        logoImageView.image = image
-                    }catch let err {
-                        print("Error : \(err.localizedDescription)")
-                    }
+                bodyTextLabel.text = api?.results.shop[i].name
+                let url = URL(string: api?.results.shop[i].logoImage ?? "")
+                do {
+                    let data = try Data(contentsOf: url!)
+                    let image = UIImage(data: data)
+                    logoImageView.image = image
+                }catch let err {
+                    print("Error : \(err.localizedDescription)")
                 }
+            }
         }
     }
     //ロゴ
